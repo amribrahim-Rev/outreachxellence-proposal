@@ -1,0 +1,50 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme inline {
+  --color-ink: #0C0C0E;
+  --color-ink2: #141418;
+  --color-ink3: #1E1E26;
+  --color-cream: #F0EDE6;
+  --color-warm: #D4CFBF;
+  --color-muted: #6B6860;
+  --color-dim: #2E2E36;
+  --color-live: #6B3DF5;
+  --color-live-light: rgba(107, 61, 245, 0.2);
+
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-sans: 'Barlow', sans-serif;
+  
+  --color-background: var(--color-ink);
+  --color-foreground: var(--color-cream);
+}
+
+@layer base {
+  * {
+    @apply border-dim;
+  }
+  body {
+    @apply font-sans antialiased bg-ink text-cream;
+    overflow-x: hidden;
+  }
+  
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--color-ink); }
+  ::-webkit-scrollbar-thumb { background: var(--color-dim); }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .ticker-track {
+    animation: ticker 30s linear infinite;
+  }
+  
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+}

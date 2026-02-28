@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OutreachXellence × GSD Idea — Outbound Growth Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@300;400;500&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+:root {
+  --ink:     #0C0C0E;
+  --ink2:    #141418;
+  --ink3:    #1E1E26;
+  --cream:   #F0EDE6;
+  --warm:    #D4CFBF;
+  --muted:   #6B6860;
+  --dim:     #2E2E36;
+  --live:    #6B3DF5;
+  --serif:   'Instrument Serif', Georgia, serif;
+  --mono:    'IBM Plex Mono', monospace;
+  --body:    'Barlow', sans-serif;
+}
+
+body {
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--body);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--ink); }
+::-webkit-scrollbar-thumb { background: var(--dim); }
+
+/* ── TICKER ─────────────────────────────── */
+.ticker-wrap {
+  background: var(--live);
+  overflow: hidden;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+.ticker-track {
+  display: flex;
+  white-space: nowrap;
+  animation: ticker 30s linear infinite;
+}
+@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.ticker-item {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: 0.08em;
+  padding: 0 28px;
+}
+.ticker-dot { opacity: 0.4; margin: 0 4px; }
+
+/* ── NAV ─────────────────────────────────── */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 56px;
+  border-bottom: 1px solid var(--dim);
+}
+.nav-logo {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--cream);
+  text-decoration: none;
+}
+.nav-logo .x { color: var(--live); }
+.nav-links { display: flex; gap: 32px; }
+.nav-link {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-link:hover { color: var(--cream); }
+.nav-for {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  border: 1px solid var(--dim);
+  padding: 6px 14px;
+}
+.nav-for span { color: var(--live); }
+
+/* ── SHARED SECTION ──────────────────────── */
+.section { padding: 80px 56px; border-bottom: 1px solid var(--dim); }
+.section.alt { background: var(--ink2); }
+@media (max-width: 768px) { 
+  .section { padding: 56px 24px; } 
+  nav { padding: 20px 24px; }
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--live);
+  opacity: 0.8;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.eyebrow::after {
+  content: '';
+  display: block;
+  width: 32px; height: 1px;
+  background: var(--live);
+  opacity: 0.4;
+}
+
+h2.serif {
+  font-family: var(--serif);
+  font-size: clamp(32px, 3.5vw, 52px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--cream);
+  margin-bottom: 14px;
+}
+h2.serif em { font-style: italic; color: var(--warm); }
+
+.section-intro {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--muted);
+  max-width: 520px;
+  line-height: 1.75;
+  margin-bottom: 52px;
+}
+
+/* ── HERO / COVER ────────────────────────── */
+.cover {
+  padding: 72px 56px 64px;
+  border-bottom: 1px solid var(--dim);
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 64px;
+  align-items: start;
+}
+@media (max-width: 900px) { .cover { grid-template-columns: 1fr; padding: 56px 24px; } }
+
+.cover-prepared {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.cover-prepared::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--muted);
+  opacity: 0.4;
+}
+.cover h1 {
+  font-family: var(--serif);
+  font-size: clamp(42px, 5vw, 76px);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--cream);
+  margin-bottom: 28px;
+}
+.cover h1 em { font-style: italic; color: var(--live); }
+.cover-body {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 520px;
+  margin-bottom: 40px;
+}
+.cover-body strong { color: var(--cream); font-weight: 500; }
+
+/* Cover right — meta */
+.meta-card {
+  background: var(--ink2);
+  border: 1px solid var(--dim);
+  padding: 28px;
+}
+.meta-card-head {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: var(--live);
+  opacity: 0.7;
+  margin-bottom: 22px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--dim);
+}
+.meta-item {
+  margin-bottom: 16px;
+}
+.meta-k {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+.meta-v {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--cream);
+}
+.meta-divider {
+  height: 1px;
+  background: var(--dim);
+  margin: 20px 0;
+}
+.meta-quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--warm);
+  line-height: 1.65;
+  opacity: 0.8;
+}
+
+/* ── SNAPSHOT / SUMMARY ──────────────────── */
+.snapshot-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-bottom: 0;
+}
+@media (max-width: 900px) { .snapshot-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .snapshot-grid { grid-template-columns: 1fr; } }
+
+.snap-card {
+  background: var(--ink2);
+  border: 1px solid var(--dim);
+  padding: 28px 24px;
+  transition: border-color 0.3s;
+}
+.snap-card:hover { border-color: rgba(107,61,245,0.3); }
+.snap-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--live);
+  opacity: 0.7;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.snap-value {
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--cream);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.snap-value em { font-style: italic; color: var(--warm); }
+.snap-desc {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ── SITUATION ───────────────────────────── */
+.situation-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+@media (max-width: 768px) { .situation-layout { grid-template-columns: 1fr; } }
+
+.sit-cell {
+  background: var(--ink2);
+  border: 1px solid var(--dim);
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+.sit-cell:hover { border-color: rgba(107,61,245,0.25); }
+.sit-cell::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--live);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.sit-cell:hover::before { transform: scaleX(1); }
+.sit-num {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--live);
+  opacity: 0.6;
+  margin-bottom: 14px;
+}
+.sit-title {
+  font-family: var(--serif);
+  font-size: 21px;
+  color: var(--cream);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+.sit-body {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.75;
+}
+.sit-body strong { color: var(--cream); font-weight: 500; }
+.sit-tag {
+  margin-top: 16px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--dim);
+  border: 1px solid var(--dim);
+  padding: 3px 10px;
+  display: inline-block;
+}
+
+/* ── WHAT WE BUILD ───────────────────────── */
+.engine-stages { display: flex; flex-direction: column; gap: 2px; }
+
+.stage {
+  border: 1px solid var(--dim);
+  background: var(--ink2);
+  border-left: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s;
+  overflow: hidden;
+}
+.stage:hover, .stage.open {
+  background: var(--ink3);
+  border-left-color: var(--live);
+}
+.stage-header {
+  display: grid;
+  grid-template-columns: 52px 1fr auto;
+  align-items: center;
+  padding: 20px 24px;
+  gap: 0;
+}
+.stage-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.stage.open .stage-num, .stage:hover .stage-num { color: var(--live); }
+.stage-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--cream);
+  letter-spacing: 0.01em;
+}
+.stage-badge {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border: 1px solid var(--dim);
+  color: var(--muted);
+}
+.stage-badge.out { border-color: rgba(107,61,245,0.3); color: var(--live); }
+.stage-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.stage.open .stage-body { max-height: 200px; }
+.stage-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 24px 20px 76px;
+}
+.stage-item {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 4px 10px;
+  border: 1px solid rgba(107,61,245,0.2);
+  color: var(--warm);
+  background: rgba(107,61,245,0.04);
+}
+.stage-arrow {
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 52px;
+  font-size: 11px;
+  color: var(--dim);
+  letter-spacing: 3px;
+}
+
+/* ── WEEK ONE ────────────────────────────── */
+.weekone-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  margin-bottom: 40px;
+}
+@media (max-width: 900px) { .weekone-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 560px) { .weekone-grid { grid-template-columns: repeat(2, 1fr); } }
+
+.day-card {
+  background: var(--ink2);
+  border: 1px solid var(--dim);
+  padding: 20px 16px;
+  transition: border-color 0.3s;
+}
+.day-card:hover { border-color: rgba(107,61,245,0.3); }
+.day-card.highlight {
+  background: var(--ink3);
+  border-color: rgba(107,61,245,0.3);
+}
+.day-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--live);
+  opacity: 0.6;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.day-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+.day-desc {
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.weekone-note {
+  background: rgba(107,61,245,0.06);
+  border: 1px solid rgba(107,61,245,0.18);
+  padding: 20px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.weekone-note-icon {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--live);
+  opacity: 0.7;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+.weekone-note-text {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.weekone-note-text strong { color: var(--cream); font-weight: 500; }
+
+/* ── TIMELINE ────────────────────────────── */
+.timeline { display: flex; flex-direction: column; gap: 2px; }
+.tl-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 0;
+  background: var(--dim);
+}
+@media (max-width: 640px) { .tl-row { grid-template-columns: 1fr; background: transparent; } }
+
+.tl-left {
+  background: var(--ink2);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-right: 1px solid var(--dim);
+}
+.tl-week {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--live);
+  opacity: 0.7;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.tl-phase-name {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--cream);
+  line-height: 1.2;
+}
+.tl-phase-name em { font-style: italic; color: var(--warm); }
+.tl-right {
+  background: var(--ink2);
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.tl-desc {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.tl-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tl-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 3px 10px;
+  border: 1px solid var(--dim);
+  color: var(--muted);
+}
+.tl-row.ongoing .tl-left { border-left: 2px solid var(--live); }
+.tl-row.ongoing .tl-tag {
+  border-color: rgba(107,61,245,0.25);
+  color: rgba(107,61,245,0.8);
+}
+
+/* ── TERMS ───────────────────────────────── */
+.terms-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+@media (max-width: 768px) { .terms-two-col { grid-template-columns: 1fr; gap: 32px; } }
+
+.terms-group-title {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--dim);
+}
+.terms-group-title.yes { color: var(--live); border-bottom-color: rgba(107,61,245,0.25); }
+.terms-group-title.no  { color: var(--dim); }
+
+.terms-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.terms-list li {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.55;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.terms-list.yes li { color: rgba(240,237,230,0.75); }
+.terms-list.yes li::before { content: '✓'; font-family: var(--mono); font-size: 11px; color: var(--live); flex-shrink: 0; margin-top: 2px; }
+.terms-list.no  li::before { content: '—'; font-family: var(--mono); font-size: 11px; color: var(--dim);  flex-shrink: 0; margin-top: 2px; }
+
+.guarantee-box {
+  background: rgba(107,61,245,0.05);
+  border: 1px solid rgba(107,61,245,0.2);
+  padding: 32px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+  align-items: center;
+}
+@media (max-width: 640px) { .guarantee-box { grid-template-columns: 1fr; } }
+.guarantee-g {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 52px;
+  color: var(--live);
+  opacity: 0.35;
+  line-height: 1;
+  user-select: none;
+}
+.guarantee-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: var(--live);
+  opacity: 0.7;
+  margin-bottom: 8px;
+}
+.guarantee-body {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1.75;
+}
+.guarantee-body strong { font-weight: 600; color: var(--live); }
+
+/* ── PRICING ─────────────────────────────── */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  margin-bottom: 24px;
+}
+@media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; gap: 3px; } }
+
+.price-card {
+  background: var(--ink2);
+  border: 1px solid var(--dim);
+  padding: 36px 30px 40px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: border-color 0.3s;
+}
+.price-card:hover { border-color: rgba(107,61,245,0.3); }
+.price-card.featured {
+  background: var(--live);
+  border-color: var(--live);
+}
+.price-card.dark-tier {
+  background: #0A0814;
+  border-color: var(--dim);
+}
+
+.price-pop {
+  position: absolute;
+  top: -13px; left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  color: var(--live);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  padding: 4px 14px;
+  white-space: nowrap;
+  border: 1px solid var(--live);
+}
+
+.price-tier {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.price-card.featured .price-tier { color: rgba(255,255,255,0.55); }
+.price-card.dark-tier .price-tier { color: var(--live); opacity: 0.7; }
+
+.price-name {
+  font-family: var(--serif);
+  font-size: 26px;
+  color: var(--cream);
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+.price-card.featured .price-name { color: #fff; }
+
+.price-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 22px;
+}
+.price-card.featured .price-desc { color: rgba(255,255,255,0.6); }
+
+.price-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 22px;
+}
+.price-num {
+  font-family: var(--serif);
+  font-size: 54px;
+  color: var(--cream);
+  line-height: 1;
+}
+.price-card.featured .price-num { color: #fff; }
+.price-card.dark-tier .price-num { color: var(--live); }
+.price-mo {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.price-card.featured .price-mo { color: rgba(255,255,255,0.45); }
+
+.price-rule { height: 1px; background: var(--dim); margin-bottom: 22px; }
+.price-card.featured .price-rule { background: rgba(255,255,255,0.18); }
+
+.price-features { list-style: none; display: flex; flex-direction: column; gap: 11px; flex: 1; }
+.price-features li {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--muted);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.45;
+}
+.price-card.featured .price-features li { color: rgba(255,255,255,0.8); }
+.price-card.dark-tier .price-features li { color: rgba(240,237,230,0.65); }
+.price-features li::before {
+  content: '✓';
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--live);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.price-card.featured .price-features li::before { color: rgba(255,255,255,0.6); }
+.price-card.dark-tier .price-features li::before { color: var(--live); }
+
+.pricing-note {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--dim);
+  line-height: 1.7;
+  letter-spacing: 0.03em;
+  max-width: 640px;
+}
+
+/* ── CLOSING ─────────────────────────────── */
+.closing-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 64px;
+  align-items: start;
+}
+@media (max-width: 900px) { .closing-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+.closing-body {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.85;
+  max-width: 500px;
+  margin-bottom: 18px;
+}
+.closing-body strong { color: var(--cream); font-weight: 500; }
+
+.contact-card {
+  background: var(--ink2);
+  border: 1px solid var(--dim);
+  padding: 28px;
+}
+.contact-head {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: var(--live);
+  opacity: 0.7;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--dim);
+}
+.contact-row { display: flex; flex-direction: column; gap: 2px; margin-bottom: 14px; }
+.contact-k { font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; }
+.contact-v { font-size: 13px; font-weight: 500; color: var(--cream); }
+.contact-divider { height: 1px; background: var(--dim); margin: 18px 0; }
+.contact-sign { font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--warm); opacity: 0.7; line-height: 1.5; }
+
+/* ── FOOTER ──────────────────────────────── */
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 24px 56px;
+}
+@media (max-width: 768px) { footer { padding: 20px 24px; } }
+.footer-logo { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; color: var(--dim); }
+.footer-logo .x { color: var(--live); opacity: 0.6; }
+.footer-note { font-family: var(--mono); font-size: 10px; color: var(--dim); letter-spacing: 0.05em; }
+
+/* ── REVEAL ──────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.show { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: 0.1s; }
+.d2 { transition-delay: 0.2s; }
+.d3 { transition-delay: 0.3s; }
+.d4 { transition-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="ticker-item">OUTREACHXELLENCE <span class="ticker-dot">◆</span> PREPARED FOR GSD IDEA</span>
+    <span class="ticker-item">STRUCTURAL ENGINEERING SOFTWARE <span class="ticker-dot">◆</span> GCC OUTBOUND SYSTEM</span>
+    <span class="ticker-item">SIGNAL-LED · NOT SPRAY-AND-PRAY <span class="ticker-dot">◆</span> 90-DAY ENGINE BUILD</span>
+    <span class="ticker-item">UAE · SAUDI · QATAR · KUWAIT · BAHRAIN · OMAN <span class="ticker-dot">◆</span> CONFIDENTIAL PROPOSAL</span>
+    <span class="ticker-item">OUTREACHXELLENCE <span class="ticker-dot">◆</span> PREPARED FOR GSD IDEA</span>
+    <span class="ticker-item">STRUCTURAL ENGINEERING SOFTWARE <span class="ticker-dot">◆</span> GCC OUTBOUND SYSTEM</span>
+    <span class="ticker-item">SIGNAL-LED · NOT SPRAY-AND-PRAY <span class="ticker-dot">◆</span> 90-DAY ENGINE BUILD</span>
+    <span class="ticker-item">UAE · SAUDI · QATAR · KUWAIT · BAHRAIN · OMAN <span class="ticker-dot">◆</span> CONFIDENTIAL PROPOSAL</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">OUTREACH<span class="x">X</span>ELLENCE</a>
+  <div class="nav-links">
+    <a href="#situation" class="nav-link">SITUATION</a>
+    <a href="#engine" class="nav-link">ENGINE</a>
+    <a href="#timeline" class="nav-link">TIMELINE</a>
+    <a href="#pricing" class="nav-link">PRICING</a>
+  </div>
+  <div class="nav-for">For <span>GSD Idea</span></div>
+</nav>
+
+<!-- ══ COVER ══════════════════════════════════════ -->
+<div class="cover">
+  <div>
+    <div class="cover-prepared">CONFIDENTIAL PROPOSAL · OUTREACHXELLENCE · 2025</div>
+    <h1>More engineers<br>across the GCC<br>need to find <em>you.</em></h1>
+    <p class="cover-body">
+      GSD Idea is the GCC's authorised reseller for IDEA StatiCa — one of the most advanced structural design platforms available to engineers today. The software is exceptional. The problem is <strong>the right engineers across Saudi, Qatar, Kuwait, and beyond aren't seeing it.</strong>
+    </p>
+    <p class="cover-body">
+      This proposal outlines how OutreachXellence will build a structured outbound system to put IDEA StatiCa in front of the structural engineers, BIM managers, and technical directors who need it — systematically, across the entire GCC.
+    </p>
+  </div>
+  <div class="meta-card reveal">
+    <div class="meta-card-head">// PROPOSAL BRIEF</div>
+    <div class="meta-item">
+      <div class="meta-k">Prepared For</div>
+      <div class="meta-v">GSD Idea — Gulf Structural Design</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-k">Product</div>
+      <div class="meta-v">IDEA StatiCa — Steel, Concrete & BIM</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-k">Region</div>
+      <div class="meta-v">GCC — 6 Markets</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-k">Target Buyers</div>
+      <div class="meta-v">Structural Engineers · BIM Managers · Technical Directors</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-k">Engagement</div>
+      <div class="meta-v">90-Day Outbound Engine Build</div>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-quote">"The right engineers aren't finding you — because no structured system exists to reach them."</div>
+  </div>
+</div>
+
+<!-- ══ AT A GLANCE ════════════════════════════════ -->
+<section class="section alt" id="glance">
+  <div class="eyebrow">AT A GLANCE</div>
+  <h2 class="serif" style="margin-bottom:40px;">Everything in<br>four lines.</h2>
+  <div class="snapshot-grid">
+    <div class="snap-card reveal">
+      <div class="snap-label">The Problem</div>
+      <div class="snap-value">No structured<br><em>outreach engine</em></div>
+      <div class="snap-desc">IDEA StatiCa's value is proven. The gap is systematic outreach to GCC engineers who've never been introduced to it.</div>
+    </div>
+    <div class="snap-card reveal d1">
+      <div class="snap-label">What We Build</div>
+      <div class="snap-value">A signal-led<br><em>outbound system</em></div>
+      <div class="snap-desc">ICP-targeted, multi-channel outreach to structural engineering firms across all 6 GCC markets.</div>
+    </div>
+    <div class="snap-card reveal d2">
+      <div class="snap-label">The Goal</div>
+      <div class="snap-value">Demo &amp; trial<br><em>conversations</em></div>
+      <div class="snap-desc">Get qualified structural engineers booked for demos and 14-day trials through a repeatable outbound process.</div>
+    </div>
+    <div class="snap-card reveal d3">
+      <div class="snap-label">The Guarantee</div>
+      <div class="snap-value">Performance-<br><em>backed terms</em></div>
+      <div class="snap-desc">If qualified conversation targets aren't met and you've met your SLA, we extend one month at no cost.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SITUATION ══════════════════════════════════ -->
+<section class="section" id="situation">
+  <div class="eyebrow">YOUR SITUATION</div>
+  <h2 class="serif">Why your current<br>reach has a <em>ceiling.</em></h2>
+  <p class="section-intro">GSD Idea has the right product, the right territory, and the right timing. What's missing is a system that proactively puts it in front of the people who need it.</p>
+
+  <div class="situation-layout">
+    <div class="sit-cell reveal">
+      <div class="sit-num">01</div>
+      <div class="sit-title">Your buyers don't find software — they get referred to it</div>
+      <div class="sit-body">Structural engineers in the GCC are a tight, technical community. They trust peer recommendations and direct outreach from credible sources far more than inbound discovery. <strong>Without proactive outreach, you're invisible to engineers who haven't already heard of IDEA StatiCa through their network.</strong></div>
+      <span class="sit-tag">Discovery gap</span>
+    </div>
+    <div class="sit-cell reveal d1">
+      <div class="sit-num">02</div>
+      <div class="sit-title">The trial and demo model needs a pipeline feeding it</div>
+      <div class="sit-body">The 14-day trial is an excellent conversion mechanism — but only if the right people are being directed to it. <strong>Right now there's no structured top-of-funnel system generating a consistent flow of qualified engineers into that trial.</strong> The mechanism exists. The pipeline doesn't.</div>
+      <span class="sit-tag">Pipeline gap</span>
+    </div>
+    <div class="sit-cell reveal d2">
+      <div class="sit-num">03</div>
+      <div class="sit-title">GCC market expansion requires market-specific outreach</div>
+      <div class="sit-body">Each GCC market has different project cycles, procurement patterns, and buyer behaviours. Saudi is infrastructure-heavy. UAE is mixed private-public. Qatar is post-World Cup consolidation. <strong>A generic approach treats six distinct buyer markets as one — and that's why blanket outreach fails here.</strong></div>
+      <span class="sit-tag">Market depth gap</span>
+    </div>
+    <div class="sit-cell reveal d3">
+      <div class="sit-num">04</div>
+      <div class="sit-title">LinkedIn presence alone doesn't drive consistent demos</div>
+      <div class="sit-body">GSD Idea has a LinkedIn presence and a well-structured website. But passive content and organic reach produce inconsistent, unpredictable results. <strong>Content builds awareness. Outbound builds pipeline.</strong> The two serve different functions — and right now only one is running.</div>
+      <span class="sit-tag">Channel gap</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHAT WE BUILD ══════════════════════════════ -->
+<section class="section alt" id="engine">
+  <div class="eyebrow">WHAT WE BUILD</div>
+  <h2 class="serif">The outbound engine,<br><em>layer by layer.</em></h2>
+  <p class="section-intro">Each layer is a component of a complete system. Click any layer to see what's inside. This is what gets built in the first 90 days.</p>
+
+  <div class="engine-stages">
+    <div class="stage open reveal" onclick="toggleStage(this)">
+      <div class="stage-header">
+        <div class="stage-num">L-01</div>
+        <div class="stage-name">ICP Intelligence — Who We Target</div>
+        <span class="stage-badge">Foundation</span>
+      </div>
+      <div class="stage-body">
+        <div class="stage-items">
+          <span class="stage-item">Structural engineering firms (GCC)</span>
+          <span class="stage-item">BIM managers & technical directors</span>
+          <span class="stage-item">STAAD / ETABS / SAP2000 users</span>
+          <span class="stage-item">Consultancies with steel/concrete mandates</span>
+          <span class="stage-item">TAM sizing per GCC market</span>
+          <span class="stage-item">Account scoring model</span>
+        </div>
+      </div>
+    </div>
+    <div class="stage-arrow">· · ·</div>
+
+    <div class="stage reveal d1" onclick="toggleStage(this)">
+      <div class="stage-header">
+        <div class="stage-num">L-02</div>
+        <div class="stage-name">Infrastructure — The Sending Architecture</div>
+        <span class="stage-badge">Engineering</span>
+      </div>
+      <div class="stage-body">
+        <div class="stage-items">
+          <span class="stage-item">10–15 dedicated domains</span>
+          <span class="stage-item">30–45 managed inboxes</span>
+          <span class="stage-item">SPF · DKIM · DMARC configuration</span>
+          <span class="stage-item">21-day warmup protocol</span>
+          <span class="stage-item">Deliverability monitoring</span>
+          <span class="stage-item">Bounce & spam rate protection</span>
+        </div>
+      </div>
+    </div>
+    <div class="stage-arrow">· · ·</div>
+
+    <div class="stage reveal d2" onclick="toggleStage(this)">
+      <div class="stage-header">
+        <div class="stage-num">L-03</div>
+        <div class="stage-name">Playbook — What We Say & How</div>
+        <span class="stage-badge">Messaging</span>
+      </div>
+      <div class="stage-body">
+        <div class="stage-items">
+          <span class="stage-item">Engineer-specific messaging angles</span>
+          <span class="stage-item">Trial & demo as primary CTA</span>
+          <span class="stage-item">Signal-based personalisation</span>
+          <span class="stage-item">Software comparison hooks</span>
+          <span class="stage-item">A/B testing cycles weekly</span>
+          <span class="stage-item">Multi-touch sequencing logic</span>
+        </div>
+      </div>
+    </div>
+    <div class="stage-arrow">· · ·</div>
+
+    <div class="stage reveal d3" onclick="toggleStage(this)">
+      <div class="stage-header">
+        <div class="stage-num">L-04</div>
+        <div class="stage-name">Activation — LinkedIn + Cold Email</div>
+        <span class="stage-badge">Execution</span>
+      </div>
+      <div class="stage-body">
+        <div class="stage-items">
+          <span class="stage-item">LinkedIn connection & conversation sequences</span>
+          <span class="stage-item">Cold email campaigns (coordinated)</span>
+          <span class="stage-item">Touch timing optimisation</span>
+          <span class="stage-item">GCC market sequencing by region</span>
+        </div>
+      </div>
+    </div>
+    <div class="stage-arrow">· · ·</div>
+
+    <div class="stage reveal" onclick="toggleStage(this)">
+      <div class="stage-header">
+        <div class="stage-num">L-05</div>
+        <div class="stage-name">Qualification — Replies Into Demo Bookings</div>
+        <span class="stage-badge">Filtering</span>
+      </div>
+      <div class="stage-body">
+        <div class="stage-items">
+          <span class="stage-item">Reply classification by intent</span>
+          <span class="stage-item">Demo & trial routing</span>
+          <span class="stage-item">CRM pipeline integration</span>
+          <span class="stage-item">Feedback loop into messaging</span>
+        </div>
+      </div>
+    </div>
+    <div class="stage-arrow">· · ·</div>
+
+    <div class="stage reveal d1" onclick="toggleStage(this)">
+      <div class="stage-header">
+        <div class="stage-num">L-06</div>
+        <div class="stage-name">Output — Demos Booked, Pipeline Reported</div>
+        <span class="stage-badge out">Output</span>
+      </div>
+      <div class="stage-body">
+        <div class="stage-items">
+          <span class="stage-item">Qualified demo meetings booked</span>
+          <span class="stage-item">Trial activations tracked</span>
+          <span class="stage-item">Show-rate optimisation</span>
+          <span class="stage-item">No-show recovery sequences</span>
+          <span class="stage-item">Weekly pipeline reporting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WEEK ONE ════════════════════════════════════ -->
+<section class="section" id="weekone">
+  <div class="eyebrow">WHAT HAPPENS FIRST</div>
+  <h2 class="serif">Your first 7 days,<br><em>exactly.</em></h2>
+  <p class="section-intro">The biggest anxiety with any new engagement is the unknown. Here's precisely what the first week looks like — day by day.</p>
+
+  <div class="weekone-grid">
+    <div class="day-card highlight reveal">
+      <div class="day-label">Day 1</div>
+      <div class="day-title">Onboarding Call</div>
+      <div class="day-desc">60-min session. We align on ICP, confirm offer angles, agree SLA terms, and hand off access credentials.</div>
+    </div>
+    <div class="day-card reveal d1">
+      <div class="day-label">Day 2</div>
+      <div class="day-title">ICP Workshop</div>
+      <div class="day-desc">We map your ideal buyer profile across each GCC market. Engineer roles, firm sizes, software stack signals.</div>
+    </div>
+    <div class="day-card reveal d2">
+      <div class="day-label">Day 3</div>
+      <div class="day-title">TAM Build Starts</div>
+      <div class="day-desc">Prospect list construction begins. Clay enrichment workflows activated. Account scoring applied.</div>
+    </div>
+    <div class="day-card reveal d3">
+      <div class="day-label">Day 4</div>
+      <div class="day-title">Domain Provisioning</div>
+      <div class="day-desc">10–15 sending domains registered and configured. SPF, DKIM, DMARC set up. Warmup sequences activated.</div>
+    </div>
+    <div class="day-card reveal">
+      <div class="day-label">Day 5</div>
+      <div class="day-title">Playbook Draft</div>
+      <div class="day-desc">First messaging sequences drafted. Engineer-specific angles written. Demo CTA framing confirmed with you.</div>
+    </div>
+    <div class="day-card reveal d1">
+      <div class="day-label">Day 6</div>
+      <div class="day-title">Review & Approve</div>
+      <div class="day-desc">You review the ICP doc, prospect sample, and messaging draft. Feedback incorporated same day.</div>
+    </div>
+    <div class="day-card reveal d2">
+      <div class="day-label">Day 7</div>
+      <div class="day-title">Infrastructure Live</div>
+      <div class="day-desc">All domains and inboxes active. Warmup running. First week report shared. Week 2 launch prep begins.</div>
+    </div>
+  </div>
+
+  <div class="weekone-note reveal">
+    <div class="weekone-note-icon">→</div>
+    <div class="weekone-note-text">
+      <strong>We don't send a single outreach message in week one.</strong> Everything in week one is about building the infrastructure correctly so that every message sent from week three onward lands in the inbox, reaches the right person, and says the right thing. Speed without foundation is how outbound gets blacklisted.
+    </div>
+  </div>
+</section>
+
+<!-- ══ 90-DAY TIMELINE ════════════════════════════ -->
+<section class="section alt" id="timeline">
+  <div class="eyebrow">90-DAY BUILD</div>
+  <h2 class="serif">The full build,<br><em>phase by phase.</em></h2>
+  <p class="section-intro">Four phases. Each has defined outputs before we move to the next. Nothing launches before it's ready.</p>
+
+  <div class="timeline">
+    <div class="tl-row reveal">
+      <div class="tl-left">
+        <div class="tl-week">Week 1–2</div>
+        <div class="tl-phase-name">Intelligence &<br><em>Architecture</em></div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-desc">We define the ICP with precision, size the addressable market across each GCC territory, map buyer signals, and draft the full playbook architecture. Nothing is built until the targeting is right.</div>
+        <div class="tl-tags">
+          <span class="tl-tag">ICP Definition</span>
+          <span class="tl-tag">GCC TAM Sizing</span>
+          <span class="tl-tag">Signal Mapping</span>
+          <span class="tl-tag">Playbook Draft</span>
+          <span class="tl-tag">Offer Angle Validation</span>
+        </div>
+      </div>
+    </div>
+    <div class="tl-row reveal d1">
+      <div class="tl-left">
+        <div class="tl-week">Week 2–3</div>
+        <div class="tl-phase-name">Infrastructure &<br><em>Deliverability</em></div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-desc">Domains provisioned. Inboxes configured. Authentication stack fully deployed. Warmup running. We don't proceed to activation until inbox placement is confirmed at target rates.</div>
+        <div class="tl-tags">
+          <span class="tl-tag">Domain Setup</span>
+          <span class="tl-tag">Inbox Configuration</span>
+          <span class="tl-tag">SPF · DKIM · DMARC</span>
+          <span class="tl-tag">Warmup Protocol</span>
+          <span class="tl-tag">Deliverability Audit</span>
+        </div>
+      </div>
+    </div>
+    <div class="tl-row reveal d2">
+      <div class="tl-left">
+        <div class="tl-week">Week 3–6</div>
+        <div class="tl-phase-name">Multi-Channel<br><em>Activation</em></div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-desc">LinkedIn and email launch in coordinated sequence. Signal-based personalisation is live. First replies come in. CRM routing and qualification filtering activated. The first iteration cycle begins.</div>
+        <div class="tl-tags">
+          <span class="tl-tag">LinkedIn Launch</span>
+          <span class="tl-tag">Email Campaigns Live</span>
+          <span class="tl-tag">Signal Personalisation</span>
+          <span class="tl-tag">Reply Management</span>
+          <span class="tl-tag">Demo Routing</span>
+        </div>
+      </div>
+    </div>
+    <div class="tl-row ongoing reveal d3">
+      <div class="tl-left">
+        <div class="tl-week">Week 7+ · Ongoing</div>
+        <div class="tl-phase-name">Optimisation &<br><em>Pipeline Control</em></div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-desc">The engine compounds. Every week we run structured A/B experiments, refine messaging from real reply data, tighten qualification criteria, and optimise show rates for booked demos. The system gets measurably better each cycle.</div>
+        <div class="tl-tags">
+          <span class="tl-tag">Weekly A/B Cycles</span>
+          <span class="tl-tag">Messaging Refinement</span>
+          <span class="tl-tag">Show-Rate Optimisation</span>
+          <span class="tl-tag">Pipeline Reporting</span>
+          <span class="tl-tag">Quarterly Review</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TERMS ══════════════════════════════════════ -->
+<section class="section" id="terms">
+  <div class="eyebrow">HOW WE WORK</div>
+  <h2 class="serif">The engagement<br><em>structure.</em></h2>
+  <p class="section-intro">Clear terms on both sides from day one. This isn't fine print — it's what makes the results predictable.</p>
+
+  <div class="terms-two-col">
+    <div>
+      <div class="terms-group-title yes">// What we deliver</div>
+      <ul class="terms-list yes">
+        <li>Full infrastructure build — domains, inboxes, authentication, warmup</li>
+        <li>ICP definition, GCC TAM mapping, and signal layer activation</li>
+        <li>LinkedIn + cold email execution targeting GCC engineering firms</li>
+        <li>Weekly A/B experimentation with documented learnings each cycle</li>
+        <li>CRM routing, reply management, and demo qualification filtering</li>
+        <li>Monthly pipeline review with forward forecasting</li>
+        <li>Deliverability monitoring throughout the engagement</li>
+      </ul>
+    </div>
+    <div>
+      <div class="terms-group-title no">// Not included</div>
+      <ul class="terms-list no">
+        <li>Closing calls, demo delivery, or technical sales support</li>
+        <li>Content creation, SEO, or inbound marketing</li>
+        <li>Paid advertising of any kind</li>
+        <li>Revenue or conversion guarantees — we guarantee qualified conversations</li>
+        <li>CRM platform licensing or implementation</li>
+        <li>Engagements shorter than 90 days</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="guarantee-box reveal">
+    <div class="guarantee-g">G</div>
+    <div>
+      <div class="guarantee-label">// CONDITIONAL PERFORMANCE GUARANTEE</div>
+      <div class="guarantee-body">
+        If agreed qualified demo and conversation targets are not met by the end of month three — and GSD Idea has met all SLA obligations with a clear, closable offer — <strong>OutreachXellence extends the engagement for one additional month at no charge.</strong> No revenue guarantees are made. This is a pipeline guarantee, conditional on bilateral accountability.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRICING ════════════════════════════════════ -->
+<section class="section alt" id="pricing">
+  <div class="eyebrow">INVESTMENT</div>
+  <h2 class="serif">Choose the tier that<br>fits where you <em>are.</em></h2>
+  <p class="section-intro">All three tiers run on the same signal-led methodology. The difference is channel depth and execution bandwidth.</p>
+
+  <div class="pricing-grid">
+    <div class="price-card reveal">
+      <div class="price-tier">TIER 1</div>
+      <div class="price-name">LinkedIn<br>Pipeline</div>
+      <div class="price-desc">One channel to establish GCC presence and start getting qualified engineers into conversations.</div>
+      <div class="price-amount">
+        <span class="price-num">$2,000</span>
+        <span class="price-mo">/mo</span>
+      </div>
+      <div class="price-rule"></div>
+      <ul class="price-features">
+        <li>ICP targeting + persona mapping</li>
+        <li>LinkedIn connection sequences</li>
+        <li>Conversation & reply management</li>
+        <li>Demo booking & calendar routing</li>
+        <li>Weekly optimisation cycles</li>
+        <li>Monthly performance report</li>
+      </ul>
+    </div>
+
+    <div class="price-card featured reveal d1">
+      <div class="price-pop">Most Popular</div>
+      <div class="price-tier">TIER 2</div>
+      <div class="price-name">Multi-Channel<br>Engine</div>
+      <div class="price-desc">LinkedIn + Cold Email as one coordinated system. Full sending infrastructure built and managed for you.</div>
+      <div class="price-amount">
+        <span class="price-num">$3,500</span>
+        <span class="price-mo">/mo</span>
+      </div>
+      <div class="price-rule"></div>
+      <ul class="price-features">
+        <li>Everything in Tier 1</li>
+        <li>Cold email — 10–15 domains, 30–45 inboxes</li>
+        <li>SPF · DKIM · DMARC + warmup protocol</li>
+        <li>Signal-based personalisation layer</li>
+        <li>Clay enrichment workflows</li>
+        <li>Multi-channel sequencing & CRM routing</li>
+        <li>Bi-weekly strategy calls</li>
+        <li>Weekly A/B experiment cycles</li>
+      </ul>
+    </div>
+
+    <div class="price-card dark-tier reveal d2">
+      <div class="price-tier">TIER 3</div>
+      <div class="price-name">Full Outbound<br>Pod</div>
+      <div class="price-desc">All channels plus a dedicated SDR handling calls, follow-ups, and full pipeline management.</div>
+      <div class="price-amount">
+        <span class="price-num">$5,500</span>
+        <span class="price-mo">/mo</span>
+      </div>
+      <div class="price-rule"></div>
+      <ul class="price-features">
+        <li>Everything in Tier 2</li>
+        <li>Dedicated SDR — calls + follow-ups</li>
+        <li>Custom call scripts & objection playbook</li>
+        <li>Voicemail drop sequences</li>
+        <li>No-show recovery campaigns</li>
+        <li>Full pipeline management</li>
+        <li>Weekly strategy sessions</li>
+        <li>Priority Slack support</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pricing-note">
+    All tiers require a 3-month minimum engagement. The conditional guarantee applies to Tier 2 and Tier 3 when SLA obligations are fully met.
+  </div>
+</section>
+
+<!-- ══ CLOSING ════════════════════════════════════ -->
+<section class="section" id="close">
+  <div class="eyebrow">NEXT STEP</div>
+  <h2 class="serif" style="margin-bottom:40px;">Ready when<br><em>you are.</em></h2>
+
+  <div class="closing-grid">
+    <div>
+      <p class="closing-body">
+        To move forward, simply reply to this proposal with your preferred tier. We'll schedule a 45-minute onboarding call to finalise ICP scope, confirm SLA terms, and begin infrastructure provisioning within the first working week.
+      </p>
+      <p class="closing-body">
+        If you'd like to discuss which tier is the right fit before committing, we're happy to get on a 30-minute scoping call first — no pressure, just clarity on what the right starting point looks like for GSD Idea's growth stage.
+      </p>
+      <p class="closing-body">
+        <strong>This proposal is valid for 30 days from the date of issue.</strong> Pricing and availability are subject to change after that window.
+      </p>
+    </div>
+    <div class="contact-card reveal">
+      <div class="contact-head">// OUTREACHXELLENCE</div>
+      <div class="contact-row">
+        <span class="contact-k">Email</span>
+        <span class="contact-v">hello@outreachxellence.com</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-k">WhatsApp</span>
+        <span class="contact-v">+971 XX XXX XXXX</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-k">Prepared For</span>
+        <span class="contact-v">GSD Idea — Gulf Structural Design</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-k">Valid Until</span>
+        <span class="contact-v">30 days from issue</span>
+      </div>
+      <div class="contact-divider"></div>
+      <div class="contact-sign">"The right engineers aren't finding you yet. Let's fix that — systematically."</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">OUTREACH<span class="x">X</span>ELLENCE</div>
+  <div class="footer-note">SIGNAL-LED OUTBOUND SYSTEMS · GCC REGION</div>
+  <div class="footer-note">CONFIDENTIAL · PREPARED FOR GSD IDEA · 2025</div>
+</footer>
+
+<script>
+// Stage toggle
+function toggleStage(el) {
+  const isOpen = el.classList.contains('open');
+  document.querySelectorAll('.stage').forEach(s => s.classList.remove('open'));
+  if (!isOpen) el.classList.add('open');
+}
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('show'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Nav active highlight
+const sections = document.querySelectorAll('section[id], div.cover');
+const navLinks = document.querySelectorAll('.nav-link');
+const navObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(l => l.style.color = l.getAttribute('href') === '#' + e.target.id ? 'var(--cream)' : '');
+    }
+  });
+}, { threshold: 0.4 });
+sections.forEach(s => navObs.observe(s));
+</script>
+</body>
+</html>
